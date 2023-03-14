@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Ingredient} from "../../models/ingredient";
+import { Ingredients} from "../../models/ingredient";
 
 @Component({
   selector: 'app-ingredient-show',
@@ -9,5 +9,5 @@ import {Ingredient} from "../../models/ingredient";
 export class IngredientShowComponent {
 
   @Input()
-  ingredient: Ingredient|undefined;
+  ingredient: Ingredients|undefined;
 }

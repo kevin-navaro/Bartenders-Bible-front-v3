@@ -1,5 +1,6 @@
 
-export interface Ingredient {
+export interface Ingredients
+{
   id: number;
   name: string;
   image: string;
