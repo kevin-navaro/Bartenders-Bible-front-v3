@@ -1,6 +1,7 @@
 package com.bartendersbible.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "favoris")
@@ -18,7 +19,14 @@ public class Favoris {
         this.id = id;
     }
 
-    @OneToOne
+    private Date date;
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "recette_id", referencedColumnName = "id")
     private Recettes recettes;
 
     public Recettes getRecettes() {
@@ -29,7 +37,8 @@ public class Favoris {
         this.recettes = recettes;
     }
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     public User getUser() {

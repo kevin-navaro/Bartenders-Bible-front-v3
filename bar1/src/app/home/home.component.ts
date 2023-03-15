@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
 import {Recipes} from "../../models/recipes";
 import {Ingredients} from "../../models/ingredient";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
 
 
 @Component({
@@ -17,12 +14,7 @@ export class HomeComponent implements OnInit
   cocktails: Recipes[] = [];
   ingredients: Ingredients[] = [];
 
-  constructor(private httpClient: HttpClient) { }
-  getApiResult() : Observable<Recipes>
-  {
-    return this.httpClient.get<Recipes>('http://localhost/phpmyadmin/index.php' +
-      '?route=/sql&db=bartenders-bible&table=recipe&pos=0')
-  }
+
 
   ngOnInit() : void
   {
@@ -45,7 +37,7 @@ export class HomeComponent implements OnInit
         id: 3,
         name: 'Cuba libre',
         hasAlcohol: true,
-        image: '../../assets/body/gin_tonic.jpg',
+        image: '../../assets/body/cuba_libre.png',
         description: 'xxx'
       },
       {

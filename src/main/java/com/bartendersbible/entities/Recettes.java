@@ -1,6 +1,9 @@
 package com.bartendersbible.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Recettes")
@@ -29,36 +32,95 @@ public class Recettes {
         this.user = user;
     }
 
-    @ManyToOne
-    private Ingredients ingredients;
+    @ManyToMany(mappedBy = "recettes")
+    private List<Ingredients> ingredients = new ArrayList<>();
 
-    public Ingredients getIngredients() {
+    public List<Ingredients> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Ingredients ingredients) {
+    public void setIngredients(List<Ingredients> ingredients) {
         this.ingredients = ingredients;
     }
 
-    @ManyToOne
-    private Review review;
+    @OneToMany(mappedBy = "recettes", targetEntity = Review.class)
+    private List<Review> review = new ArrayList<>();
 
-    public Review getReview() {
+    public List<Review> getReview() {
         return review;
     }
 
-    public void setReview(Review review) {
+    public void setReview(List<Review> review) {
         this.review = review;
     }
 
-    @OneToOne
-    private Favoris favoris;
+    @OneToMany(mappedBy = "recettes", targetEntity = Review.class)
+    private List<Favoris> favoris = new ArrayList<>();
 
-    public Favoris getFavoris() {
+    public List<Favoris> getFavoris() {
         return favoris;
     }
 
-    public void setFavoris(Favoris favoris) {
+    public void setFavoris(List<Favoris> favoris) {
         this.favoris = favoris;
+    }
+
+    private String name;
+
+    private String description;
+
+    private Date createdAt;
+
+    private int estimatedTime;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public int getEstimatedTime() {
+        return estimatedTime;
+    }
+
+    public void setEstimatedTime(int estimatedTime) {
+        this.estimatedTime = estimatedTime;
+    }
+
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public boolean hasAlcohol() {
+        for (Ingredients ingredient: this.ingredients) {
+            if (ingredient.isHasAlcohol()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
