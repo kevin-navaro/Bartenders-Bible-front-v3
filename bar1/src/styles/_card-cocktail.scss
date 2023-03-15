@@ -1,0 +1,62 @@
+
+
+.cocktails-cards
+{
+  padding: 0.8em 0.4em;
+  height: 320px;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: all 0.3s ease-in;
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-cocktail-card;
+    height: 100%;
+  }
+
+  .container-cocktails {
+    background-color: $background-infos;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    box-shadow: .2em .3em .5em black;
+    height: 100%;
+
+    .card-cocktails-title {
+      height: 42px;
+
+      h3 {
+        font-size: 2em;
+        font-weight: 600;
+        margin-left: 0.2em;
+      }
+
+      .icon-alcohol {
+        padding: 0.2em;
+        width: 100%;
+        height: 100%;
+        text-align: end;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+    }
+
+    .card-cocktails-image {
+      width: 100%;
+      height: calc(100% - 42px);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+  }
+}

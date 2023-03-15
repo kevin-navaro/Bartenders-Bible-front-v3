@@ -1,0 +1,35 @@
+
+.footer {
+  background-color: antiquewhite;
+  margin-top: 1.5em;
+
+  .social {
+    height: 52px;
+
+    a {
+      height: 100%;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .link {
+    font-size: 1.1em;
+
+    span {
+      margin-right: 0.5em;
+      margin-left: 0.5em;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

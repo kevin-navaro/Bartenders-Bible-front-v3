@@ -1,0 +1,21 @@
+
+<a *ngIf="ingredient" routerLink="/ingredient/{{ingredient.id}}" title="{{ingredient.name}}">
+  <div class="container-cocktails">
+    <div class="row card-cocktails-title">
+      <div class="col-10">
+        <h3 class=" my-auto">
+          {{ ingredient.name |  slice:0:20  }}
+        </h3>
+      </div>
+      <div class="col-2 my-auto h-100">
+        <div class="icon-alcohol">
+          <img src="../../assets/body/avec_alcool.png" alt="a_alcool" *ngIf="ingredient.hasAlcohol">
+          <img src="../../assets/body/sans_alcool.png" alt="s_alcool" *ngIf="!ingredient.hasAlcohol">
+        </div>
+      </div>
+    </div>
+    <div class="card-cocktails-image">
+      <img [src]="ingredient.image" alt="mojito">
+    </div>
+  </div>
+</a>
